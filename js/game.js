@@ -111,6 +111,15 @@ var Game = {
       this.stopAction();
       return;
     }
+    // cek bahan dulu sebelum mulai (biar nggak kedip aktif sesaat)
+    var def0 = skillDef(id);
+    if (def0.cost) {
+      var kurang0 = Object.keys(def0.cost).some(function (r) { return s.res[r] < def0.cost[r]; });
+      if (kurang0) {
+        UI.toast('Bahan kurang! Kumpulin Herba & Mana dulu.');
+        return;
+      }
+    }
     s.action = { skill: id, t: 0 };
     UI.refresh();
   },
