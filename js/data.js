@@ -21,18 +21,23 @@ const RES = {
 const SKILLS = [
   { id: 'meditasi', name: 'Meditasi Mana',   icon: '🧘',
     desc: 'Duduk santai, sedot mana dari udara.',
+    cat: 'Sihir', catColor: '#a78bfa',
     cycle: 3.0, xp: 8,  gain: { mana: 1 } },
   { id: 'herba',    name: 'Kumpul Herba',    icon: '🌿',
     desc: 'Metik tanaman ajaib di semak-semak.',
+    cat: 'Pengumpul', catColor: '#22c55e',
     cycle: 3.5, xp: 8,  gain: { herba: 1 } },
   { id: 'kristal',  name: 'Tambang Kristal', icon: '⛏️',
     desc: 'Pecahin kristal mana yang berkilau.',
+    cat: 'Pengumpul', catColor: '#22c55e',
     cycle: 4.0, xp: 10, gain: { kristal: 1 } },
   { id: 'alkimia',  name: 'Alkimia',         icon: '⚗️',
     desc: 'Racik herba + mana jadi ramuan penyembuh.',
+    cat: 'Produksi', catColor: '#fb923c',
     cycle: 4.0, xp: 15, gain: { ramuan: 1 }, cost: { herba: 2, mana: 2 } },
   { id: 'enchanting', name: 'Enchanting',    icon: '✨',
     desc: 'Sihir penguat equipment. Enchant item di tab Tas.',
+    cat: 'Sihir', catColor: '#a78bfa',
     cycle: 0, xp: 0, gain: {}, noCard: true }, // tidak ada kartu latih; XP dari enchanting item
 ];
 

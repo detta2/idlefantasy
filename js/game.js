@@ -136,7 +136,10 @@ var Game = {
     }
     Object.keys(def.gain).forEach(function (r) { s.res[r] += def.gain[r]; });
     this.gainXp(skillId, def.xp);
-    UI.spawnPopup('card-' + skillId, '+' + def.xp + ' XP');
+    var gainLines = Object.keys(def.gain).map(function (r) {
+      return RES[r].icon + ' +' + def.gain[r] + ' ' + RES[r].name;
+    });
+    UI.spawnPopup('card-' + skillId, def.icon + ' ' + def.name, ['+' + def.xp + ' XP'].concat(gainLines));
   },
 
   // key: id skill atau 'tempur'
@@ -218,7 +221,7 @@ var Game = {
     this.gainXp('tempur', mon.xp);
     var gold = Math.round(mon.gold * rand(0.8, 1.2));
     s.gold += gold;
-    UI.spawnPopup('ab-card', '+' + mon.xp + ' XP');
+    UI.spawnPopup('ab-card', mon.def.icon + ' ' + mon.def.name, ['+' + mon.xp + ' XP', '💰 +' + gold]);
     // 15% drop equipment
     if (Math.random() < 0.15) {
       var item = genItem(mon.lvl);
